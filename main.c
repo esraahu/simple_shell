@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 
 /**
  * main - reads the input string
@@ -28,8 +28,8 @@ return (status);
 command = tokenizer(line);
 if (!command)
 continue;
-if (rebuild(commt[0]))
-	callevnorexit(commt, &status);
+if (rebuild(command[0]))
+	callevnorexit(command, &status);
 else
 
 status = _execute(command, arg);

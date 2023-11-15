@@ -11,7 +11,7 @@ int x = 0;
 
 while (environ[x])
 {
-	write(STDOUT_FILENO, environ[x], _len(environ[x]));
+	write(STDOUT_FILENO, environ[x], _strlen(environ[x]));
 	write(STDOUT_FILENO, "\n", 1);
 	x++;
 }
