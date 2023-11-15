@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _execute - executes a command
+ * _execut - executes a command
  * @command: char car
  * @arg: char var
  * Return: value of input int
  */
-int _execute(char **command, char **arg)
+int _execut(char **command, char **arg)
 {
 pid_t child;
 int status;

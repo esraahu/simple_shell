@@ -16,7 +16,7 @@ extern char **environ;
 
 char *read_line(void);
 char **tokenizer(char *line);
-int _execute(char **command, char **arg);
+int _execut(char **command, char **arg);
 
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
