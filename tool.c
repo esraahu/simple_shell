@@ -1,5 +1,8 @@
 #include "shell.h"
-
+/**
+ * freearrayofstring - free 2d array string
+ * @arr: char ar
+*/
 void freearrayofstring(char **arr)
 {
 int x;

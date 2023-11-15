@@ -1,9 +1,9 @@
 #include "shell.h"
 
-/*
- * *read_line - line-by-line parsing utility
- * Return: a pointer to an array of strings, or NULL on failure
-*/
+/**
+ * *read_line -  reads the input string
+ * Return: value of input string
+ */
 
 char *read_line(void)
 {
