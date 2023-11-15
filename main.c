@@ -28,7 +28,9 @@ return (status);
 command = tokenizer(line);
 if (!command)
 continue;
-
+if (rebuild(commt[0]))
+	callevnorexit(commt, &status);
+else
 
 status = _execute(command, arg);
 }
