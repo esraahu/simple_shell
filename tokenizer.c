@@ -1,49 +1,48 @@
-#include "shell.h"
+#include "main.h"
 
 /**
- * **tokenizer - splits a string into words. Repeat delimiters are ignored
- * @line: the input string
- * Return: a pointer to an array of strings, or NULL on failure
+ * tokenizer - splits a commant string
+ * @lne: one string
+ * Return: value of char
  */
-char **tokenizer(char *line)
+char **tokenizer(char *lne)
 {
-char *token = NULL, tmp = NULL;
-char **command = NULL;
-int cpt = 0, x = 0;
+	char *token = NULL, *temp = NULL, del[] = {" \t\n"};
+	char **commant = NULL;
+	int x = 0, cpt = 0;
 
-if (!line)
-return (NULL);
-tmp = _strdup(line);
+if (!lne)
+	return (NULL);
 
-token = strtok(tmp, DELIM);
+temp = _strdup(lne);
+token = strtok(temp, del);
+
 if (token == NULL)
 {
-free(line), line = NULL;
-free(tmp), tmp = NULL;
-return (NULL);
+	free(lne), lne = NULL;
+	free(temp), temp = NULL;
+	return (NULL);
 }
 while (token)
 {
-cpt++;
-token = strtok(NULL, DELIM);
+	cpt++;
+	token = strtok(NULL, del);
 }
-free(tmp), tmp = NULL;
-
-command = malloc(sizeof(char *) * (cpt + 1));
-if (!command)
+free(temp), temp = NULL;
+commant = malloc(sizeof(char *) * (cpt + 1));
+if (!commant)
 {
-free(line), line = NULL;
-return (NULL);
+	free(lne), lne = NULL;
+	return (NULL);
 }
-token = strtok(line, DELIM);
+token = strtok(lne, del);
 while (token)
 {
-command[x] = _strdup(token);
-token = strtok(NULL, DELIM);
-x++;
+	commant[x] = _strdup(token);
+	token = strtok(NULL, del);
+	x++;
 }
-
-free(line), line = NULL;
-command[x] = NULL;
-return (command);
+free(lne), lne = NULL;
+commant[x] = NULL;
+return (commant);
 }
