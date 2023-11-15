@@ -1,37 +1,40 @@
 #include "shell.h"
 
 /**
- * _strdup - duplicates a string
- * @str: the string to duplicate
- *
- * Return: pointer to the duplicated string
- */
+ * _strdup - that returns a pointer to a newly allocated space in memory
+ * @str : size array
+ * Return: char is par or 0
+*/
 char *_strdup(const char *str)
 {
-char *ptr;
-int x, len = 0;
+	int x, l;
+	char *now;
 
-if (str == NULL)
-return (NULL);
-while (*str != '\0')
-{
-len++;
-str++;
-}
-str = str - len;
-ptr = malloc(sizeof(char) * (len + 1));
-if (ptr == NULL)
-return (NULL);
-for (x = 0, x <= len, x++)
-ptr[x] = str[x];
-return (ptr);
+	if (!str)
+	{
+		return (NULL);
+	}
+	for (l = 0; str[l] != '\0';)
+	{
+		l++;
+	}
+	now = malloc(sizeof(char) * l + 1);
+	if (!now)
+	{
+		return (NULL);
+	}
+	for (x = 0; x < l; x++)
+	{
+		now[x] = str[x];
+	}
+	now[l] = str[l];
+	return (now);
 }
 /**
- * _strcmp - performs lexicogarphic comparison of two strangs.
- * @s1: the first strang
- * @s2: the second strang
- *
- * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
+ * _strcmp - compares two strings.
+ * @s1: one string
+ * @s2: two string
+ * Return: value of int
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -49,61 +52,58 @@ cmp = (int)*s1 - (int)*s2;
 return (cmp);
 }
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
- *
- * Return: integer length of string
- */
+ ** _strlen - it gives the length of a string
+ ** @s: pointer to the string
+ ** Return: the length of string
+ **/
 int _strlen(char *s)
 {
 int len = 0;
 
-while (s[len])
+while (*(s + len) != '\0')
 len++;
 return (len);
 }
 /**
  * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
+ * @dest: string 1
+ * @src: strint 2
  *
- * Return: pointer to destination buffer
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
+
 char *_strcat(char *dest, char *src)
 {
-char *p = dest;
+int x, y, z;
 
-while (*p)
-p++;
+	i = 0, y = 0;
+	while (dest[x] != '\0')
+		x++;
+	while (src[y] != '\0')
+		y++;
+	for (z = 0; z <= y; z++, x++)
+		dest[x] = src[z];
+	return (dest);
 
-while (*src)
-{
-*p = *src;
-p++;
-src++;
-}
-*p = *src;
-return (dest);
 }
 /**
- * _strcpy - copies a string
- * @dest: the destination
- * @src: the source
+ * _strcpy - main function to copy
  *
- * Return: pointer to destination
+ * @dest: destination to copy
+ * @src: src
+ *
+ * Return: a character value
  */
+
 char *_strcpy(char *dest, char *src)
 {
-int x = 0;
+int x;
 
-if (dest == src || src == 0)
-return (dest);
+	for (x = 0; x <= _strlen(src); x++)
+	{
+		dest[x] = src[x];
+	}
+	return (dest);
 
-while (src[x])
-{
-dest[x] = src[x];
-x++;
-}
-dest[x] = 0;
-return (dest);
 }
