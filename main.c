@@ -1,17 +1,17 @@
 #include "shell.h"
 
 /**
-*main - simple shell main function
-*@ca: count of arguments
-*@arg: Arguments
-*Return: 0 Always (success).
-*/
+ * main - reads the input string
+ * @ca: length arr
+ * @arg: array
+ * Return: value of input int
+ */
 
 int main(int ca, char **arg)
 {
 char *line = NULL;
 char **command = NULL;
-int x, status = 0;
+int status = 0;
 (void) ca;
 
 
@@ -28,6 +28,7 @@ return (status);
 command = tokenizer(line);
 if (!command)
 continue;
+
 
 status = _execute(command, arg);
 }
