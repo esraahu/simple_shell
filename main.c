@@ -32,7 +32,7 @@ if (rebuild(command[0]))
 	callevnorexit(command, &status);
 else
 
-status = _execute(command, arg);
+status = _execut(command, arg);
 }
 
 }
