@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- *_execute - copies a string
- *@command: the destination string to be copied to
- *@arg: the source string
- *Return: the concatenated string
+ * _execute - executes a command
+ * @command: char car
+ * @arg: char var
+ * Return: value of input int
  */
 int _execute(char **command, char **arg)
 {
@@ -16,9 +16,9 @@ if (child == 0)
 {
 if (exexve(command[0], command, environ) == -1)
 {
-perror(arg{0});
+perror(arg[0]);
 freearrayofstring(command);
-exit(10);
+exit(127);
 }
 }
 else
